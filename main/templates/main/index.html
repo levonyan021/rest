@@ -1,0 +1,23 @@
+{% for d in data.Teams %}
+<ul>
+    <li>{{d.team_name}}, Matches: {{ d.team_matches }}</li>
+</ul>
+<br>
+{% endfor %}
+<form action="{% url 'index' %}" method="post" name="addTeam">
+    {% csrf_token %}
+    <input type="text" name="team_name" placeholder="team_name" >
+    <input type="text" name="team_matches" placeholder="team_matches" >
+    <input type="text" name="team_losses" placeholder="team_losses" >
+    <input type="text" name="team_players" placeholder="team_players" >
+    <input type="submit" value="addTeam">
+</form>
+
+<form action="{% url 'index' %}" method="post" name="addPerson">
+    {% csrf_token %}
+    <input type="text" name="first_name" placeholder="first_name" >
+    <input type="text" name="last_name" placeholder="last_name" >
+    <input type="submit" value="addPerson">
+</form>
+{% comment %} <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> {% endcomment %}
+
